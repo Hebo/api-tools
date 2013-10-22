@@ -13,7 +13,8 @@
 (defn try-version
   [host ver]
   (let [resp (client/get (make-url host)
-                         {:headers {"Accept" (str "application/vnd.twitchtv.v" ver "+json")}})]
+                         {:headers {"Accept" (str "application/vnd.twitchtv.v" ver "+json")
+                                    "Host" "api.twitch.tv"}})]
     (let [])
     (if (not= (get-ver resp) ver)
       (do (println (str "Error! got version: "
